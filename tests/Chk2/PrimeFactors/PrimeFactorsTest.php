@@ -20,6 +20,9 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
         $this->assertPrimeFactors([7], 7);
         $this->assertPrimeFactors([2, 2, 2], 8);
         $this->assertPrimeFactors([3, 3], 9);
+
+        // integration test
+        $this->assertPrimeFactors([2, 2, 3, 3, 5, 7, 11, 11, 13], 2 * 2 * 3 * 3 * 5 * 7 * 11 * 11 * 13);
     }
 
     /**
@@ -39,18 +42,13 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
 function of($n)
 {
     $list = [];
-    if ($n > 1) {
-        while ($n % 2 == 0) {
-            $list[] = 2;
-            $n /= 2;
+    $divisor = 2;
+    while ($n > 1) {
+        while ($n % $divisor == 0) {
+            $list[] = $divisor;
+            $n /= $divisor;
         }
-        while ($n % 3 == 0) {
-            $list[] = 3;
-            $n /= 3;
-        }
-    }
-    if ($n > 1) {
-        $list[] = $n;
+        $divisor++;
     }
     return $list;
 }
