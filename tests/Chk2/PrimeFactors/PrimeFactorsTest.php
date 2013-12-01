@@ -19,6 +19,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
         $this->assertPrimeFactors([2, 3], 6);
         $this->assertPrimeFactors([7], 7);
         $this->assertPrimeFactors([2, 2, 2], 8);
+        $this->assertPrimeFactors([3, 3], 9);
     }
 
     /**
@@ -43,9 +44,13 @@ function of($n)
             $list[] = 2;
             $n /= 2;
         }
-        if ($n > 1) {
-            $list[] = $n;
+        while ($n % 3 == 0) {
+            $list[] = 3;
+            $n /= 3;
         }
+    }
+    if ($n > 1) {
+        $list[] = $n;
     }
     return $list;
 }
