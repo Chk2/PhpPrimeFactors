@@ -16,7 +16,8 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
         $this->assertPrimeFactors([2], 2);
         $this->assertPrimeFactors([3], 3);
         $this->assertPrimeFactors([2, 2], 4);
-        $this->assertPrimeFactors([5], 5);
+        $this->assertPrimeFactors([2, 3], 6);
+        $this->assertPrimeFactors([7], 7);
     }
 
     /**
