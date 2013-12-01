@@ -12,9 +12,18 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanFactorIntoPrimes()
     {
-        $this->assertEquals([], of(1));
-        $this->assertEquals([2], of(2));
-        $this->assertEquals([3], of(3));
+        $this->assertPrimeFactors([], 1);
+        $this->assertPrimeFactors([2], 2);
+        $this->assertPrimeFactors([3], 3);
+    }
+
+    /**
+     * @param $primeFactors
+     * @param $n
+     */
+    private function assertPrimeFactors($primeFactors, $n)
+    {
+        $this->assertEquals($primeFactors, of($n));
     }
 }
 
