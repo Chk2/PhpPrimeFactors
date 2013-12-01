@@ -13,6 +13,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
     public function testCanFactorIntoPrimes()
     {
         $this->assertEquals([], of(1));
+        $this->assertEquals([2], of(2));
     }
 }
 
@@ -22,5 +23,8 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
  */
 function of($n)
 {
+    if ($n == 2) {
+        return [2];
+    }
     return [];
 }
