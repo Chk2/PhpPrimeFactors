@@ -14,6 +14,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
     {
         $this->assertEquals([], of(1));
         $this->assertEquals([2], of(2));
+        $this->assertEquals([3], of(3));
     }
 }
 
@@ -24,7 +25,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
 function of($n)
 {
     if ($n > 1) {
-        return [2];
+        return [$n];
     }
     return [];
 }
