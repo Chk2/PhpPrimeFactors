@@ -23,7 +23,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase {
  */
 function of($n)
 {
-    if ($n == 2) {
+    if ($n > 1) {
         return [2];
     }
     return [];
